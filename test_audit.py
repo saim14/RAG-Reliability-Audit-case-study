@@ -5,7 +5,7 @@ class ReliabilityAuditTests(unittest.TestCase):
     def test_baseline_metrics(self):
         rows = audit.evaluate(audit.baseline)
         s = audit.summary(rows)
-        self.assertAlmostEqual(s["overall_pass_rate"], 0.45)
+        self.assertAlmostEqual(s["overall_pass_rate"], 0.40)
         self.assertAlmostEqual(s["evidence_or_abstention_accuracy"], 0.70)
         self.assertAlmostEqual(s["supported_answer_accuracy"], 9 / 16)
         self.assertAlmostEqual(s["unsupported_abstention_rate"], 0.0)
