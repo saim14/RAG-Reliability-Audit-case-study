@@ -6,7 +6,7 @@ This report records the deterministic output of `python audit.py` for the includ
 
 | Metric | Baseline | Reliability-aware | Delta |
 |---|---:|---:|---:|
-| Overall reliability pass rate | 45.0% | **95.0%** | **+50.0 pp** |
+| Overall reliability pass rate | 40.0% | **95.0%** | **+55.0 pp** |
 | Correct evidence / abstention | 70.0% | **100.0%** | **+30.0 pp** |
 | Supported-answer correctness | 56.3% | **93.8%** | **+37.5 pp** |
 | Unsupported-question abstention | 0.0% | **100.0%** | **+100.0 pp** |
@@ -14,9 +14,8 @@ This report records the deterministic output of `python audit.py` for the includ
 ## Baseline failure map
 
 ### Stale evidence
-- **Q03** — "How long can deleted content stay in backups?"
-- Baseline selects `retention_2024` and returns **90 days**.
-- Current evidence is `retention_2026`: **30 days**.
+- **Q03** — deleted-content retention: baseline retrieves `retention_2024` and returns **90 days** instead of the current **30 days**.
+- **Q04** — application-log retention: baseline also retrieves `retention_2024` instead of the current retention policy.
 
 ### Right document, wrong passage
 The baseline retrieves the correct document but returns the first sentence for:
@@ -41,7 +40,7 @@ The returned text is fluent but unrelated evidence.
 ## Reliability-aware fixes
 
 ### Fix 1 — freshness-aware retrieval
-Legacy documents receive an explicit score penalty. This removes the stale 90-day retention answer.
+Legacy documents receive an explicit score penalty. This removes both legacy-policy retrieval failures.
 
 ### Fix 2 — query-aware passage selection
 Instead of always returning the first sentence, candidate sentences are scored by overlap with the question.
@@ -76,10 +75,10 @@ Add a semantic or learned reranker at the passage layer, then keep the same 20-c
 
 | Failure class | Baseline | Reliability-aware |
 |---|---:|---:|
-| stale document | 1 | 0 |
+| stale / wrong-version evidence | 2 | 0 |
 | correct doc / wrong passage | 6 | 1 |
 | unsupported answer instead of abstention | 4 | 0 |
-| total failed cases | 11 | 1 |
+| total failed cases | 12 | 1 |
 
 ## Interpretation
 
