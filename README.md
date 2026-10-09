@@ -17,11 +17,11 @@ No API keys or paid models are required.
 
 | Metric | Baseline | Reliability-aware |
 |---|---:|---:|
-| Overall reliability pass rate | 45% | **95%** |
+| Overall reliability pass rate | 40% | **95%** |
 | Correct evidence / abstention | 70% | **100%** |
 | Supported-answer correctness | 56.3% | **93.8%** |
 | Unsupported-question abstention | 0% | **100%** |
-| Known remaining failure | 7 answer failures + 4 unsupported hallucinations | **1 extraction failure** |
+| Failed cases | 12 / 20 | **1 / 20** |
 
 The point is not that BM25 is universally “better.” The point is that reliability improves when the system is evaluated as a chain:
 
@@ -30,7 +30,7 @@ The point is not that BM25 is universally “better.” The point is that reliab
 ## What the audit found
 
 ### 1. Stale-document failure
-The baseline can choose a legacy retention policy and answer **90 days** when the current policy says **30 days**.
+The baseline selects the legacy retention document on two cases. For deleted-content retention it answers **90 days** when the current policy says **30 days**; for application-log retention it also retrieves the obsolete policy rather than the current source.
 
 **Fix:** explicitly model document status/version and penalize legacy evidence during retrieval.
 
@@ -53,15 +53,18 @@ That failure is kept intentionally. A useful audit should expose remaining weakn
 
 ```bash
 python audit.py
+python -m unittest -v
 ```
 
-The script uses only the Python standard library and writes a case-by-case report to stdout.
+The implementation uses only the Python standard library. GitHub Actions runs both the audit and its regression tests.
 
 ## Repository structure
 
 ```
 .
+├── .github/workflows/audit.yml
 ├── audit.py
+├── test_audit.py
 ├── data/
 │   ├── corpus.json
 │   └── eval_cases.json
@@ -75,7 +78,7 @@ The 20 cases include:
 
 - 16 answerable questions with a known source document and required answer evidence,
 - 4 intentionally unsupported questions that should trigger abstention,
-- one legacy/current policy conflict,
+- a legacy/current policy conflict,
 - multi-sentence documents where retrieval can be right while extraction is wrong.
 
 The benchmark checks two separate layers:
@@ -87,8 +90,7 @@ The benchmark checks two separate layers:
 
 A single “accuracy” score can hide qualitatively different failures:
 
-- wrong document,
-- stale document,
+- wrong or stale document,
 - right document / wrong passage,
 - unsupported synthesis,
 - failure to abstain.
