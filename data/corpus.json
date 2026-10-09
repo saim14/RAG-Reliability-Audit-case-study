@@ -1,0 +1,86 @@
+[
+  {
+    "id": "retention_2024",
+    "title": "Data retention - legacy",
+    "version": "2024-02",
+    "status": "legacy",
+    "text": "Deleted customer content may remain in backups for up to 90 days. Application logs are retained for 180 days."
+  },
+  {
+    "id": "retention_2026",
+    "title": "Data retention",
+    "version": "2026-08",
+    "status": "current",
+    "text": "Deleted customer content remains in recoverable backups for up to 30 days. Application logs are retained for 90 days. Enterprise customers may request shorter log retention."
+  },
+  {
+    "id": "security_sso_2026",
+    "title": "SSO and MFA",
+    "version": "2026-09",
+    "status": "current",
+    "text": "Enterprise plans support SAML 2.0 single sign-on. Administrators can require MFA for all workspace members. SCIM provisioning is available on Enterprise."
+  },
+  {
+    "id": "residency_2026",
+    "title": "Data residency",
+    "version": "2026-07",
+    "status": "current",
+    "text": "EU data residency is available for Enterprise workspaces. Primary customer content can be stored in Frankfurt. Support metadata may be processed globally."
+  },
+  {
+    "id": "sla_2026",
+    "title": "Service level agreement",
+    "version": "2026-06",
+    "status": "current",
+    "text": "The Enterprise SLA provides 99.95% monthly uptime. Service credits require a claim within 30 days after the affected month."
+  },
+  {
+    "id": "support_2026",
+    "title": "Support plans",
+    "version": "2026-04",
+    "status": "current",
+    "text": "Business support has a target first response within 8 business hours. Enterprise priority support targets a first response within 1 hour for Severity 1 incidents."
+  },
+  {
+    "id": "api_limits_2026",
+    "title": "API rate limits",
+    "version": "2026-05",
+    "status": "current",
+    "text": "The standard API limit is 600 requests per minute per workspace. Enterprise customers can request higher limits subject to review."
+  },
+  {
+    "id": "audit_logs_2026",
+    "title": "Audit logs",
+    "version": "2026-03",
+    "status": "current",
+    "text": "Enterprise audit logs record authentication, role changes, exports, and administrative settings changes. Audit logs are retained for 365 days."
+  },
+  {
+    "id": "billing_2026",
+    "title": "Billing and cancellation",
+    "version": "2026-01",
+    "status": "current",
+    "text": "Monthly subscriptions can be cancelled at any time and remain active until the end of the billing period. Annual contracts are non-refundable unless the order form states otherwise."
+  },
+  {
+    "id": "encryption_2026",
+    "title": "Encryption",
+    "version": "2026-02",
+    "status": "current",
+    "text": "Customer content is encrypted in transit using TLS 1.2 or later and encrypted at rest using AES-256."
+  },
+  {
+    "id": "backups_2026",
+    "title": "Backups and recovery",
+    "version": "2026-05",
+    "status": "current",
+    "text": "Production databases are backed up daily. Recovery procedures are tested quarterly. Point-in-time recovery is available for the previous 7 days."
+  },
+  {
+    "id": "pricing_2026",
+    "title": "Plans and pricing",
+    "version": "2026-09",
+    "status": "current",
+    "text": "The Team plan costs $29 per user per month when billed monthly. Enterprise pricing is custom and depends on deployment and support requirements."
+  }
+]
