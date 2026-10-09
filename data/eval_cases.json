@@ -1,0 +1,22 @@
+[
+  {"id":"Q01","question":"Does Enterprise support SAML SSO?","expected_doc":"security_sso_2026","required_evidence":["SAML 2.0"],"should_abstain":false},
+  {"id":"Q02","question":"Can admins require MFA for everyone?","expected_doc":"security_sso_2026","required_evidence":["require MFA"],"should_abstain":false},
+  {"id":"Q03","question":"How long can deleted content stay in backups?","expected_doc":"retention_2026","required_evidence":["30 days"],"should_abstain":false},
+  {"id":"Q04","question":"How long are application logs retained?","expected_doc":"retention_2026","required_evidence":["90 days"],"should_abstain":false},
+  {"id":"Q05","question":"Can Enterprise keep data in the EU?","expected_doc":"residency_2026","required_evidence":["EU data residency"],"should_abstain":false},
+  {"id":"Q06","question":"What uptime does the Enterprise SLA promise?","expected_doc":"sla_2026","required_evidence":["99.95%"],"should_abstain":false},
+  {"id":"Q07","question":"When must an SLA credit claim be filed?","expected_doc":"sla_2026","required_evidence":["within 30 days"],"should_abstain":false},
+  {"id":"Q08","question":"What is the Severity 1 response target?","expected_doc":"support_2026","required_evidence":["within 1 hour"],"should_abstain":false},
+  {"id":"Q09","question":"What is the standard API rate limit?","expected_doc":"api_limits_2026","required_evidence":["600 requests per minute"],"should_abstain":false},
+  {"id":"Q10","question":"How long are audit logs retained?","expected_doc":"audit_logs_2026","required_evidence":["365 days"],"should_abstain":false},
+  {"id":"Q11","question":"Can I cancel a monthly subscription any time?","expected_doc":"billing_2026","required_evidence":["cancelled at any time"],"should_abstain":false},
+  {"id":"Q12","question":"Are annual contracts refundable?","expected_doc":"billing_2026","required_evidence":["non-refundable"],"should_abstain":false},
+  {"id":"Q13","question":"How is customer content encrypted at rest?","expected_doc":"encryption_2026","required_evidence":["AES-256"],"should_abstain":false},
+  {"id":"Q14","question":"How often are production databases backed up?","expected_doc":"backups_2026","required_evidence":["daily"],"should_abstain":false},
+  {"id":"Q15","question":"How many days of point-in-time recovery are available?","expected_doc":"backups_2026","required_evidence":["7 days"],"should_abstain":false},
+  {"id":"Q16","question":"What does the Team plan cost monthly?","expected_doc":"pricing_2026","required_evidence":["$29"],"should_abstain":false},
+  {"id":"Q17","question":"Does the product support HIPAA BAA?","expected_doc":null,"required_evidence":[],"should_abstain":true},
+  {"id":"Q18","question":"Is there an on-premise deployment option?","expected_doc":null,"required_evidence":[],"should_abstain":true},
+  {"id":"Q19","question":"What is the maximum file upload size?","expected_doc":null,"required_evidence":[],"should_abstain":true},
+  {"id":"Q20","question":"Does the platform provide SOC 2 Type II certification?","expected_doc":null,"required_evidence":[],"should_abstain":true}
+]
